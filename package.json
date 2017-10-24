@@ -1,0 +1,26 @@
+{
+  "name": "cucumbertest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cucumber":"./node_modules/.bin/cucumber.js.cmd -t @collect",
+    "postTopic": "./node_modules/.bin/cucumber.js.cmd -t @postTopic"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xufeng1994/cucumberTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xufeng1994/cucumberTest/issues"
+  },
+  "homepage": "https://github.com/xufeng1994/cucumberTest#readme",
+  "dependencies": {
+    "chromedriver": "^2.33.2",
+    "cucumber": "^3.0.6",
+    "selenium-webdriver": "^3.6.0"
+  }
+}
