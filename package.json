@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cucumber":"./node_modules/.bin/cucumber.js.cmd -t @collect",
-    "postTopic": "./node_modules/.bin/cucumber.js.cmd -t @postTopic"
+    "collect": "./node_modules/.bin/cucumber.js.cmd -t @collect",
+    "postTopic": "./node_modules/.bin/cucumber.js.cmd -t @postTopic -f json:./report/report.json && node reporter.js ",
+    "register": "./node_modules/.bin/cucumber.js.cmd -t @register"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
   "dependencies": {
     "chromedriver": "^2.33.2",
     "cucumber": "^3.0.6",
+    "fs-extra": "^4.0.2",
+    "multiple-cucumber-html-reporter": "^1.1.0",
     "selenium-webdriver": "^3.6.0"
   }
 }

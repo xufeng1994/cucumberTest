@@ -1,0 +1,198 @@
+[
+  {
+    "description": "    主要操作为发帖、回帖、收藏、取消以及删帖\n    负责人： 徐枫\n    日期：2017-10-24",
+    "keyword": "Feature",
+    "name": "话题相关操作",
+    "line": 2,
+    "id": "话题相关操作",
+    "tags": [
+      {
+        "name": "@postTopic",
+        "line": 1
+      }
+    ],
+    "uri": "features\\postTopic.feature",
+    "elements": [
+      {
+        "description": "        用户登陆成功才能发帖",
+        "id": "话题相关操作;发帖",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "发帖",
+        "tags": [
+          {
+            "name": "@postTopic",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\hooks.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4747
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "使用用户名:\"xufeng\",密码:\"xf13451082032\"  成功登录系统",
+            "match": {
+              "location": "features\\postTopic.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11262
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "导航到用户发帖界面",
+            "match": {
+              "location": "features\\postTopic.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2756
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "发布帖子，板块：\"分享\"，标题：\"helloworld \",内容:\"23415twrdfh1qaz2wsx\"",
+            "match": {
+              "location": "features\\postTopic.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 504
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "点击发布话题",
+            "match": {
+              "location": "features\\postTopic.js:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 662
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "features\\hooks.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86
+            }
+          }
+        ]
+      },
+      {
+        "description": "        用户登陆成功  才能回帖    ",
+        "id": "话题相关操作;回帖",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "回帖",
+        "tags": [
+          {
+            "name": "@postTopic",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\hooks.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3140
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "使用用户名:\"xufeng\",密码:\"xf13451082032\"  成功登录系统",
+            "match": {
+              "location": "features\\postTopic.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11475
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "导航到用户回复帖子界面",
+            "match": {
+              "location": "features\\postTopic.js:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3384
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "回复帖子内容:\"hkkjkmncvkh\"",
+            "match": {
+              "location": "features\\postTopic.js:58"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 278
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "点击回复 回复成功",
+            "match": {
+              "location": "features\\postTopic.js:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 664
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "features\\hooks.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
