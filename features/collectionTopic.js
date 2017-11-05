@@ -9,7 +9,7 @@ defineSupportCode(function ({ Given, Then, When }) {
         this.web.findElement({ id: "name" }).sendKeys(string)
         this.web.findElement({ id: "pass" }).sendKeys(string2)
         this.web.findElement({ css: ".span-primary" }).click()
-        return this.web.findElement({ css: "a[href ='/topic/59f5650ce9bc0ed00c3bbe67']" }).click()
+        return this.web.findElement({ css: "a[href ='/topic/59f098cde9bc0ed00c3bbe55']" }).click()
     });
 
     Then('点击收藏按钮 提示收藏成功', function () {
@@ -44,6 +44,6 @@ defineSupportCode(function ({ Given, Then, When }) {
         let text = await this.web.findElement({ css: 'a[href="/user/xufeng/collections' }).getText()
         // console.log(text)
         //return assert.ok(text.equal(""))
-        assert.deepEqual("3个话题收藏", text)
+        assert.deepEqual("4个话题收藏", text)
     });
 })

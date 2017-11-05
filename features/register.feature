@@ -17,10 +17,6 @@ Feature: register function Test
         When 注册信息中 email 输入"abc"
         Then 错误提示信息为"邮箱不合法。"
 
-    Scenario: email 格式不正确
-        When 注册信息中 email 输入"abc"
-        Then 错误提示信息为"邮箱不合法。"
-
     @differentScen
     Scenario Outline: 不同注册场景  
         When 用户名输入"<username>",密码输入"<pass>",重复密码输入"<repass>",邮箱输入"<email>"

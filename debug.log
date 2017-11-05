@@ -1,0 +1,4 @@
+[1105/145728.486:ERROR:process_reader_win.cc(151)] SuspendThread: 拒绝访问。 (0x5)
+[1105/145728.490:ERROR:exception_snapshot_win.cc(87)] thread ID 9936 not found in process
+[1105/145728.490:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[1105/145728.490:ERROR:scoped_process_suspend.cc(39)] NtResumeProcess: 已尝试访问正在退出的过程。  (0xc000010a)
