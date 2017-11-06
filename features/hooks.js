@@ -9,31 +9,7 @@ defineSupportCode(function ({ Before, After }) {
     After(async function () {
         await this.web.quit()
     })
-    // Before({ tag: "@collect" }, function () {
-    //     // TODO
-    // })
-})
-
-defineSupportCode(function ({BeforeAll, AfterAll}) {
-    BeforeAll(function () {
-        //TODO
+    Before({ tag: "@collect" }, function () {
+        // TODO
     })
-    // AfterAll(async function () {
-    //     let reporterDirPath = path.join(__dirname,"../report");
-    //     return report.generate({
-    //         jsonDir: reporterDirPath,
-    //         reportPath: reporterDirPath,
-    //         metadata: {
-    //             browser: {
-    //                 name: 'chrome',
-    //                 version: '62'
-    //             },
-    //             device: 'fengzi',
-    //             platform: {
-    //                 name: 'Windows',
-    //                 version: '10.12.6'
-    //             }
-    //         }
-    //     });
-    // })
 })

@@ -5,8 +5,8 @@ let assert = require("assert")
 defineSupportCode(function ({ Given, Then, When }) {
 
   Given('导航到注册页面', async function () {
-    this.web.get("http://118.31.19.120:3000/")
-    return this.web.findElement({ css: 'a[href:"/signup"]' }).click()
+    await this.web.get("http://118.31.19.120:3000/")
+    return this.web.findElement({ css: 'a[href="/signup"]' }).click()
   });
 
   When('在注册用户信息中填入注册信息', function () {
@@ -22,7 +22,7 @@ defineSupportCode(function ({ Given, Then, When }) {
 
     return assert.deepEqual("两次密码输入不一致。", errtip);
   });
-  
+
   When('注册信息中 email 输入{string}', function (string) {
     this.web.findElement({ id: "loginname" }).sendKeys("xiaoming");
     this.web.findElement({ id: "pass" }).sendKeys("1234567");
