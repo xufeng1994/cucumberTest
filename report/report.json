@@ -1,26 +1,26 @@
 [
   {
-    "description": "    不场景的登录功能实现\n    负责人： 徐枫\n    日期： 2017-11-05",
+    "description": "    删除帖子功能测试\n    author:杜小磊\n    date:2017-11-05",
     "keyword": "Feature",
-    "name": "登录功能用例",
-    "line": 3,
-    "id": "登录功能用例",
+    "name": "delete function test",
+    "line": 2,
+    "id": "delete-function-test",
     "tags": [
       {
-        "name": "@login",
+        "name": "@delete",
         "line": 1
       }
     ],
-    "uri": "features\\login.feature",
+    "uri": "features\\delete.feature",
     "elements": [
       {
-        "id": "登录功能用例;不输入任何元素直接点击登录",
+        "id": "delete-function-test;删除发帖功能",
         "keyword": "Scenario",
-        "line": 11,
-        "name": "不输入任何元素直接点击登录",
+        "line": 10,
+        "name": "删除发帖功能",
         "tags": [
           {
-            "name": "@login",
+            "name": "@delete",
             "line": 1
           }
         ],
@@ -30,170 +30,46 @@
             "keyword": "Before",
             "hidden": true,
             "match": {
-              "location": "features\\hooks.js:6"
+              "location": "features\\supports\\hooks.js:3"
             },
             "result": {
               "status": "passed",
-              "duration": 4402
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1
+              "duration": 7233
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 9,
-            "name": "使用Chrome浏览器打开URL,并进入登录界面",
+            "line": 8,
+            "name": "用户登录,用户名输入\"abcduxiaolei\",密码输入\"abc4862556\",成功登录",
             "match": {
-              "location": "features\\login.js:7"
+              "location": "features\\postTopic.js:6"
             },
             "result": {
-              "status": "passed",
-              "duration": 10620
+              "status": "failed",
+              "duration": 60012,
+              "error_message": "Error: function timed out after 60000 milliseconds\n    at Timeout._onTimeout (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\cucumber\\lib\\user_code_runner.js:93:22)\n    at ontimeout (timers.js:469:11)\n    at tryOnTimeout (timers.js:304:5)\n    at Timer.listOnTimeout (timers.js:264:5)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "导航到要删除的帖子页面",
+            "match": {
+              "location": "features\\delete.js:4"
+            },
+            "result": {
+              "status": "skipped"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 12,
-            "name": "直接点击登录按钮",
+            "name": "点击删除按钮，弹出二次确定框，确定后删除成功",
             "match": {
-              "location": "features\\login.js:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 387
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 13,
-            "name": "提示\"信息不完整。\"",
-            "match": {
-              "location": "features\\login.js:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 79
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:9"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 54
-            }
-          }
-        ]
-      },
-      {
-        "id": "登录功能用例;用户名或密码错误",
-        "keyword": "Scenario",
-        "line": 15,
-        "name": "用户名或密码错误",
-        "tags": [
-          {
-            "name": "@login",
-            "line": 1
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3130
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:12"
-            },
-            "result": {
-              "status": "passed"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 9,
-            "name": "使用Chrome浏览器打开URL,并进入登录界面",
-            "match": {
-              "location": "features\\login.js:7"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 14370
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 16,
-            "name": "输入错误的用户名，点击登录",
-            "match": {
-              "location": "features\\login.js:21"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 636
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 17,
-            "name": "提示\"用户名或密码错误\"",
-            "match": {
-              "location": "features\\login.js:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 74
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 18,
-            "name": "输入正确的用户名，错误的密码",
-            "match": {
-              "location": "features\\login.js:29"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 38,
-              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"\"]\"}\n  (Session info: chrome=62.0.3202.75)\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector, *[id=\"\"]))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:30:14)\nFrom: Task: WebElement.sendKeys()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.sendKeys (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2174:19)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:30:38)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 19,
-            "name": "也提示\"用户名或密码错误\"",
-            "match": {
-              "location": "features\\login.js:36"
+              "location": "features\\delete.js:7"
             },
             "result": {
               "status": "skipped"
@@ -203,23 +79,23 @@
             "keyword": "After",
             "hidden": true,
             "match": {
-              "location": "features\\hooks.js:9"
+              "location": "features\\supports\\hooks.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 54
+              "duration": 13256
             }
           }
         ]
       },
       {
-        "id": "登录功能用例;输入正确的用户名和密码",
+        "id": "delete-function-test;取消删除发帖功能",
         "keyword": "Scenario",
-        "line": 21,
-        "name": "输入正确的用户名和密码",
+        "line": 13,
+        "name": "取消删除发帖功能",
         "tags": [
           {
-            "name": "@login",
+            "name": "@delete",
             "line": 1
           }
         ],
@@ -229,67 +105,137 @@
             "keyword": "Before",
             "hidden": true,
             "match": {
-              "location": "features\\hooks.js:6"
+              "location": "features\\supports\\hooks.js:3"
             },
             "result": {
-              "status": "passed",
-              "duration": 3079
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:12"
-            },
-            "result": {
-              "status": "passed"
+              "status": "failed",
+              "duration": 300,
+              "error_message": "WebDriverError: no such session\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector, ul > li:nth-child(6) > a))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at CustomWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\postTopic.js:8:18)\nFrom: Task: WebElement.click()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.click (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2092:17)\n    at CustomWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\postTopic.js:8:67)"
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 9,
-            "name": "使用Chrome浏览器打开URL,并进入登录界面",
+            "line": 8,
+            "name": "用户登录,用户名输入\"abcduxiaolei\",密码输入\"abc4862556\",成功登录",
             "match": {
-              "location": "features\\login.js:7"
+              "location": "features\\postTopic.js:6"
             },
             "result": {
-              "status": "passed",
-              "duration": 9511
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "导航到要删除的帖子页面",
+            "match": {
+              "location": "features\\delete.js:4"
+            },
+            "result": {
+              "status": "skipped"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 22,
-            "name": "输入正确的用户名和密码,点击登录按钮",
+            "line": 15,
+            "name": "点击删除按钮，弹出二次确定框，取消后删除失败",
             "match": {
-              "location": "features\\login.js:41"
+              "location": "features\\delete.js:12"
             },
             "result": {
-              "status": "passed",
-              "duration": 1062
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 23,
-            "name": "登录成功，进入主页面",
-            "match": {
-              "location": "features\\login.js:47"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 74
+              "status": "skipped"
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "match": {
-              "location": "features\\hooks.js:9"
+              "location": "features\\supports\\hooks.js:6"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 60003,
+              "error_message": "Error: function timed out after 60000 milliseconds\n    at Timeout._onTimeout (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\cucumber\\lib\\user_code_runner.js:93:22)\n    at ontimeout (timers.js:469:11)\n    at tryOnTimeout (timers.js:304:5)\n    at Timer.listOnTimeout (timers.js:264:5)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "delete-function-test;取消删除回帖功能",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "取消删除回帖功能",
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@delete1",
+            "line": 17
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\supports\\hooks.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4191
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "用户登录,用户名输入\"abcduxiaolei\",密码输入\"abc4862556\",成功登录",
+            "match": {
+              "location": "features\\postTopic.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "导航到要删除的帖子页面",
+            "match": {
+              "location": "features\\delete.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12216
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "点击回帖的删除按钮，弹出二次确定框，取消后删除失败",
+            "match": {
+              "location": "features\\delete.js:16"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 38,
+              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"div.user_action > a.delete_reply_btn\"}\n  (Session info: chrome=62.0.3202.75)\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector, div.user_action > a.delete_reply_btn))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at CustomWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\delete.js:17:18)\nFrom: Task: WebElement.click()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.click (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2092:17)\n    at CustomWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\delete.js:17:79)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "features\\supports\\hooks.js:6"
             },
             "result": {
               "status": "passed",
@@ -299,18 +245,14 @@
         ]
       },
       {
-        "id": "登录功能用例;不同登录场景",
+        "id": "delete-function-test;删除回帖功能",
         "keyword": "Scenario",
-        "line": 30,
-        "name": "不同登录场景",
+        "line": 21,
+        "name": "删除回帖功能",
         "tags": [
           {
-            "name": "@login",
+            "name": "@delete",
             "line": 1
-          },
-          {
-            "name": "@differScen",
-            "line": 24
           }
         ],
         "type": "scenario",
@@ -319,345 +261,62 @@
             "keyword": "Before",
             "hidden": true,
             "match": {
-              "location": "features\\hooks.js:6"
+              "location": "features\\supports\\hooks.js:3"
             },
             "result": {
               "status": "passed",
-              "duration": 3102
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:12"
-            },
-            "result": {
-              "status": "passed"
+              "duration": 3635
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 9,
-            "name": "使用Chrome浏览器打开URL,并进入登录界面",
+            "line": 8,
+            "name": "用户登录,用户名输入\"abcduxiaolei\",密码输入\"abc4862556\",成功登录",
             "match": {
-              "location": "features\\login.js:7"
+              "location": "features\\postTopic.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 9586
+              "duration": 24969
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 26,
-            "name": "用户名输入：\"\",密码输入：\"\"",
+            "line": 22,
+            "name": "导航到要删除的帖子页面",
             "match": {
-              "location": "features\\login.js:52"
+              "location": "features\\delete.js:4"
             },
             "result": {
               "status": "passed",
-              "duration": 1042
+              "duration": 21640
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 27,
-            "name": "点击登录按钮 应该收到\"信息不完整。\"",
+            "line": 23,
+            "name": "点击回帖的删除按钮，弹出二次确定框，确定后删除成功",
             "match": {
-              "location": "features\\login.js:58"
+              "location": "features\\delete.js:20"
             },
             "result": {
               "status": "failed",
-              "duration": 33,
-              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\" div.inner > div > strong\"}\n  (Session info: chrome=62.0.3202.75)\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector,  div.inner > div > strong))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:36)\nFrom: Task: WebElement.getText()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.getText (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2277:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:86)"
+              "duration": 43,
+              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"div.user_action > a.delete_reply_btn\"}\n  (Session info: chrome=62.0.3202.75)\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector, div.user_action > a.delete_reply_btn))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at CustomWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\delete.js:21:18)\nFrom: Task: WebElement.click()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.click (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2092:17)\n    at CustomWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\delete.js:21:79)"
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "match": {
-              "location": "features\\hooks.js:9"
+              "location": "features\\supports\\hooks.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 64
-            }
-          }
-        ]
-      },
-      {
-        "id": "登录功能用例;不同登录场景",
-        "keyword": "Scenario",
-        "line": 31,
-        "name": "不同登录场景",
-        "tags": [
-          {
-            "name": "@login",
-            "line": 1
-          },
-          {
-            "name": "@differScen",
-            "line": 24
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3118
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:12"
-            },
-            "result": {
-              "status": "passed"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 9,
-            "name": "使用Chrome浏览器打开URL,并进入登录界面",
-            "match": {
-              "location": "features\\login.js:7"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 9538
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "用户名输入：\"12313223\",密码输入：\"\"",
-            "match": {
-              "location": "features\\login.js:52"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1094
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "点击登录按钮 应该收到\"信息不完整。\"",
-            "match": {
-              "location": "features\\login.js:58"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 33,
-              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\" div.inner > div > strong\"}\n  (Session info: chrome=62.0.3202.75)\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector,  div.inner > div > strong))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:36)\nFrom: Task: WebElement.getText()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.getText (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2277:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:86)"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:9"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 55
-            }
-          }
-        ]
-      },
-      {
-        "id": "登录功能用例;不同登录场景",
-        "keyword": "Scenario",
-        "line": 32,
-        "name": "不同登录场景",
-        "tags": [
-          {
-            "name": "@login",
-            "line": 1
-          },
-          {
-            "name": "@differScen",
-            "line": 24
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3137
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:12"
-            },
-            "result": {
-              "status": "passed"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 9,
-            "name": "使用Chrome浏览器打开URL,并进入登录界面",
-            "match": {
-              "location": "features\\login.js:7"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 12578
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "用户名输入：\"\",密码输入：\"12313223\"",
-            "match": {
-              "location": "features\\login.js:52"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1023
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "点击登录按钮 应该收到\"信息不完整。\"",
-            "match": {
-              "location": "features\\login.js:58"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 33,
-              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\" div.inner > div > strong\"}\n  (Session info: chrome=62.0.3202.75)\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector,  div.inner > div > strong))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:36)\nFrom: Task: WebElement.getText()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.getText (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2277:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:86)"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:9"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 60
-            }
-          }
-        ]
-      },
-      {
-        "id": "登录功能用例;不同登录场景",
-        "keyword": "Scenario",
-        "line": 33,
-        "name": "不同登录场景",
-        "tags": [
-          {
-            "name": "@login",
-            "line": 1
-          },
-          {
-            "name": "@differScen",
-            "line": 24
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3140
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:12"
-            },
-            "result": {
-              "status": "passed"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 9,
-            "name": "使用Chrome浏览器打开URL,并进入登录界面",
-            "match": {
-              "location": "features\\login.js:7"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 10013
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "用户名输入：\"xufeng\",密码输入：\"1233534\"",
-            "match": {
-              "location": "features\\login.js:52"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1033
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "点击登录按钮 应该收到\"用户名或者密码错误\"",
-            "match": {
-              "location": "features\\login.js:58"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 37,
-              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\" div.inner > div > strong\"}\n  (Session info: chrome=62.0.3202.75)\n  (Driver info: chromedriver=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f),platform=Windows NT 10.0.14393 x86_64)\n    at Object.checkLegacyResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.findElement(By(css selector,  div.inner > div > strong))\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at thenableWebDriverProxy.findElement (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1014:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:36)\nFrom: Task: WebElement.getText()\n    at thenableWebDriverProxy.schedule (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at WebElementPromise.schedule_ (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2010:25)\n    at WebElementPromise.getText (D:\\AutoTest\\MyProject\\cucumberTest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:2277:17)\n    at customWorld.<anonymous> (D:\\AutoTest\\MyProject\\cucumberTest\\features\\login.js:59:86)"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features\\hooks.js:9"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 68
+              "duration": 57
             }
           }
         ]

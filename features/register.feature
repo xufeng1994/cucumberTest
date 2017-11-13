@@ -1,32 +1,33 @@
 @register
-Feature: register function Test
-    注册功能测试。 
-    负责人： zack
-    时间： 2017-10-22
+Feature: register function test
+    注册不同场景的功能测试
+    author:杜小磊
+    date:2017-11-04
+    Background:
+    Given 进入首页
 
-    Background: 导航到注册页面
+    Scenario: 点击注册按钮是否跳转到正确的注册页面
+        When 点击注册按钮，跳转到注册页面，注册页面左上角有'注册'标签
+    @register1    
+    Scenario: 输入正确的注册信息，成功登录
+        When 导航到注册页面
+        Then 用户名输入'123457',密码输入'123',确认密码输入'123',邮箱输入'123456@qq.com'点击提交按钮，注册成功，提示,'欢迎加入 Nodeclub！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。'
+    @register2
+    Scenario Outline: 注册失败，得到提示信息
         Given 导航到注册页面
-    Scenario: 两次输入密码不一致
-    如果注册的时候，两次输入密码不一致，那么会有 密码不一致的提示
-        
-        When 在注册用户信息中填入注册信息
-        Then 点击注册按钮，注册失败,得到错误提示信息。
-
-    @email
-    Scenario: email 格式不正确
-        When 注册信息中 email 输入"abc"
-        Then 错误提示信息为"邮箱不合法。"
-
-    @differentScen
-    Scenario Outline: 不同注册场景  
-        When 用户名输入"<username>",密码输入"<pass>",重复密码输入"<repass>",邮箱输入"<email>"
-        Then 点击提交，应该收到"<tipmessage>"
+        When 用户名输入'<username>',密码输入'<pass>',确认密码输入'<re_pass>',邮箱输入'<email>'点击注册的按钮，得到提示'<message>'
         Examples:
-        |username|pass|repass|email|tipmessage|
-        |        |123 | 123  |123@123.com|信息不完整。|   
-        |imhello |1234|4321| 123@123.com|两次密码输入不一致。|
-
+        |username|pass|re_pass|email|message|
+        |123456|123|123|123456@qq.com|用户名或邮箱已被使用。|
+        ||123|123|123@123.com|信息不完整。|
+        |1|1|1|1@1.com|用户名至少需要5个字符。|
+        |11111|123|123|123qq.com|邮箱不合法。|
     
-    
+    @register3
+    Scenario: 输入正确的注册信息，成功登录
+        When 导航到注册页面
+        Then 用户名输入'123457',密码输入'123456',确认密码输入'123456',邮箱输入'914650@qq.com'点击提交按钮，注册成功，提示,'欢迎加入 Nodeclub！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。'
+        Then 修改数据库,激活用户
+        Then 使用刚才注册的用户密码为"123456"应该可以正确登录
 
     

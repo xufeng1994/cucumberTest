@@ -1,54 +1,54 @@
-let { defineSupportCode } = require("cucumber")
+let { defineSupportCode } = require('cucumber');
+let assert = require('assert');
 
-let assert = require("assert")
+let UserAction = require('../uiAction/uiAction');
 
-defineSupportCode(function ({ Given, Then, When }) {
 
-  Given('导航到注册页面', async function () {
-    await this.web.get("http://118.31.19.120:3000/")
-    return this.web.findElement({ css: 'a[href="/signup"]' }).click()
+var MongoClient = require('mongodb').MongoClient;
+
+const url = "mongodb://118.31.19.120:27017/node_club_dev";
+
+defineSupportCode(function ({ Given, When, Then }) {
+  Given('进入首页', function () {
+    return this.web.get('http://118.31.19.120:3000/');
+  });
+  When('点击注册按钮，跳转到注册页面，注册页面左上角有{string}标签', async function (string) {
+    this.web.findElement({ css: ' div.navbar > div > div > ul > li:nth-child(5) > a' }).click();
+    let text = await this.web.findElement({ css: 'li.active' }).getText();
+    console.log(text);
+    return assert.deepEqual(text, string);
+  });
+  When('导航到注册页面', function () {
+    return this.web.findElement({ css: 'body > div.navbar > div > div > ul > li:nth-child(5) > a' }).click();
+  });
+  let registerUserName, registerUserEmail;
+  Then('用户名输入{string},密码输入{string},确认密码输入{string},邮箱输入{string}点击提交按钮，注册成功，提示,{string}', async function (string, string2, string3, string4, string5) {
+    let nowtime = new Date().valueOf();
+    registerUserName = string + nowtime;
+    registerUserEmail = nowtime + string4;
+    return UserAction.userRegister(this.web, registerUserName, string2, string3, registerUserEmail, string5)
   });
 
-  When('在注册用户信息中填入注册信息', function () {
-    this.web.findElement({ id: "loginname" }).sendKeys("xiaoming");
-    this.web.findElement({ id: "pass" }).sendKeys("1234567");
-    this.web.findElement({ id: "re_pass" }).sendKeys("654321")
-    return this.web.findElement({ id: "email" }).sendKeys("xiamin@163.com");
+  When('用户名输入{string},密码输入{string},确认密码输入{string},邮箱输入{string}点击注册的按钮，得到提示{string}', async function (string, string2, string3, string4, string5) {
+    return UserAction.userRegister(this.web, string, string2, string3, string4, string5, "error");
   });
 
-  Then('点击注册按钮，注册失败,得到错误提示信息。',async function () {
-    this.web.findElement({ css: ".span-primary" }).click();
-    let errtip = await this.web.findElement({ css: "div.inner > div > strong" }).getText();
-
-    return assert.deepEqual("两次密码输入不一致。", errtip);
+  Then('修改数据库,激活用户', async function () {
+    MongoClient.connect(url, function (err, db) {
+      assert.equal(null, err);
+      console.log("Connected correctly to server");
+      let collection = db.collection("users")
+      collection.updateOne({ name: `${registerUserName}` }, { $set: { "active": true } }, function (err, docs) {
+        assert.equal(null, err);
+        //console.log(docs)
+      })
+      db.close();
+    });
   });
 
-  When('注册信息中 email 输入{string}', function (string) {
-    this.web.findElement({ id: "loginname" }).sendKeys("xiaoming");
-    this.web.findElement({ id: "pass" }).sendKeys("1234567");
-    this.web.findElement({ id: "re_pass" }).sendKeys("654321")
-    return this.web.findElement({ id: "email" }).sendKeys(string);
+  Then('使用刚才注册的用户密码为{string}应该可以正确登录', async function (password) {
+    await this.web.get("http://118.31.19.120:3000/signin");
+    return UserAction.userLogin(this.web, `${registerUserName}`, password, `${registerUserName}`);
   });
 
-  Then('错误提示信息为{string}', async function (string) {
-    this.web.findElement({ css: ".span-primary" }).click();
-    let errtip = await this.web.findElement({ css: "div.inner > div > strong" }).getText();
-
-    return assert.deepEqual(string, errtip);
-  });
-
-  When('用户名输入{string},密码输入{string},重复密码输入{string},邮箱输入{string}', function (string, string2, string3, string4) {
-    console.log("username,", string, "password", string2, "repass", string3, "email", string4)
-
-    this.web.findElement({ id: "loginname" }).sendKeys(string);
-    this.web.findElement({ id: "pass" }).sendKeys(string2);
-    this.web.findElement({ id: "re_pass" }).sendKeys(string3)
-    return this.web.findElement({ id: "email" }).sendKeys(string4);
-  });
-
-  Then('点击提交，应该收到{string}',async function (string) {
-    await this.web.findElement({ css: ".span-primary" }).click();
-    let errtip = await this.web.findElement({ css: "div.inner > div > strong" }).getText();
-    return assert.deepEqual(string, errtip);
-  });
 })

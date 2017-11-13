@@ -1,62 +1,54 @@
-let { defineSupportCode } = require("cucumber")
+let { defineSupportCode } = require('cucumber');
+let UserAction = require('../uiAction/uiAction');
+let assert = require('assert');
+defineSupportCode(function ({ Given, When, Then }) {
 
-let assert = require("assert")
-
-defineSupportCode(function ({ Given, Then, When }) {
-
-  Given('使用Chrome浏览器打开URL,并进入登录界面', async function () {
-    await this.web.get("http://118.31.19.120:3000/")
-    return this.web.findElement({ css: 'a[href="/signin"]' }).click()
+  When('点击登录按钮，跳转到登录页面，登录页面左上角有{string}标签', async function (string) {
+    this.web.findElement({ css: ' li:nth-child(6) > a' }).click();
+    let text = await this.web.findElement({ css: 'li.active' }).getText();
+    console.log(text);
+    return assert.deepEqual(text, string);
+  });
+  When('导航到登录页面', function () {
+    return this.web.findElement({ css: ' li:nth-child(6) > a' }).click();
+  });
+  Then('用户名输入{string},密码输入{string},点击登录按钮，登录成功，跳转首页，页面有{string}个人信息', async function (string, string2, string3) {
+    return await UserAction.userLogin(this.web, string, string2, string3);
   });
 
-  Then('直接点击登录按钮', function () {
-    return this.web.findElement({ css: ".span-primary" }).click()
+  Then('用户名输入{string},密码输入{string},点击登录按钮，得到错误提示{string}', async function (string, string2, string3) {
+    return await UserAction.userLogin(this.web, string, string2, string3, "error");
+  });
+  // Then('用户名输入{string},密码输入{string}', function (string, string2) {
+  //     this.web.findElement({ id: 'name' }).sendKeys(string);
+  //     return this.web.findElement({ id: 'pass' }).sendKeys(string2);
+  // });
+  // Then('点击登录按钮，登录成功，跳转首页，页面有{string}个人信息', async function (string) {
+  //     this.web.findElement({ css: '.span-primary' }).click();
+  //     let text1 = await this.web.findElement({ css: 'div > span.user_name > a' }).getText();
+  //     return assert.deepEqual(text1, string);
+  // });
+  Then('点击登录按钮，得到错误提示{string}', async function (string) {
+    this.web.findElement({ css: '.span-primary' }).click();
+    let text2 = await this.web.findElement({ css: 'strong' }).getText();
+    return assert.deepEqual(text2, string);
   });
 
-  Then('提示{string}', async function (string) {
-    let errortips = await this.web.findElement({ css: ' div.inner > div > strong' }).getText()
-    return assert.deepEqual(string, errortips)
+  Then('点击忘记密码按钮，跳转的页面是否有{string}标签', async function (string) {
+    this.web.findElement({ id: 'forgot_password' }).click();
+    let text3 = await this.web.findElement({ css: '.active' }).getText();
+    return assert.deepEqual(text3, string);
+  });
+  Then('点击忘记密码按钮，跳转到找回密码页面', function () {
+    return this.web.findElement({ id: 'forgot_password' }).click();
+  });
+  Then('邮箱输入{string}', function (string) {
+    return this.web.findElement({ id: 'email' }).sendKeys(string);
   });
 
-  Then('输入错误的用户名，点击登录', function () {
-    this.web.findElement({ id: "name" }).sendKeys("11111111")
-    this.web.findElement({ id: "pass" }).sendKeys("3413413");
-    return this.web.findElement({ css: ".span-primary" }).click()
-  });
-
-  
-
-  Then('输入正确的用户名，错误的密码', function () {
-    this.web.findElement({ id: "" }).sendKeys("xufeng")
-    this.web.findElement({ id: "" }).sendKeys("x13451082032");
-    return this.web.findElement({ css: ".span-primary" }).click()
-
-  });
-
-  Then('也提示{string}', async function (string) {
-    let errortips = await this.web.findElement({ css: ' div.inner > div > strong' }).getText()
-    return assert.deepEqual(string, errortips)
-  });
-
-  Then('输入正确的用户名和密码,点击登录按钮', function () {
-    this.web.findElement({ id: "name" }).sendKeys("xufeng")
-    this.web.findElement({ id: "pass" }).sendKeys("xf13451082032");
-    return this.web.findElement({ css: ".span-primary" }).click()
-  });
-
-  Then('登录成功，进入主页面', async function () {
-    let assertUserName = await this.web.findElement({ css: '.user_card .user_name' }).getText();
-    return assert.equal(assertUserName, "xufeng")
-  });
-
-  When('用户名输入：{string},密码输入：{string}', function (string, string2) {
-    this.web.findElement({ id: "name" }).sendKeys("xufeng")
-    this.web.findElement({ id: "pass" }).sendKeys("xf13451082032");
-    return this.web.findElement({ css: ".span-primary" }).click()
-  });
-
-  Then('点击登录按钮 应该收到{string}',async function (string) {
-    let errortips = await this.web.findElement({ css: ' div.inner > div > strong' }).getText()
-    return assert.deepEqual(string, errortips)
+  Then('点击提交按钮，得到提示信息{string}', async function (string) {
+    this.web.findElement({ css: '.span-primary' }).click();
+    let text4 = await this.web.findElement({ css: 'strong' }).getText();
+    return assert.deepEqual(text4, string);
   });
 })

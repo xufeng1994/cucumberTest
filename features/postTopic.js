@@ -3,13 +3,12 @@ let { defineSupportCode } = require("cucumber")
 let assert = require('assert');
 
 defineSupportCode(function ({ Given, Then, When }) {
-    Given('使用用户名:{string},密码:{string}  成功登录系统', async function (string,string2) {
-        this.web.get("http://118.31.19.120:3000/")
-        this.web.findElement({ css: 'a[href="/signin"]' }).click()
-        this.web.findElement({ id: "name" }).sendKeys(string)
-        this.web.findElement({ id: "pass" }).sendKeys(string2)
-        return this.web.findElement({ css: ".span-primary" }).click()
-
+    Given('用户登录,用户名输入{string},密码输入{string},成功登录', function (string, string2) {
+        this.web.get('http://118.31.19.120:3000/');
+        this.web.findElement({ css: 'ul > li:nth-child(6) > a' }).click();
+        this.web.findElement({ id: 'name' }).sendKeys(string);
+        this.web.findElement({ id: 'pass' }).sendKeys(string2);
+        return this.web.findElement({ css: ".span-primary" }).click();
     });
 
     Then('导航到用户发帖界面', async function () {
