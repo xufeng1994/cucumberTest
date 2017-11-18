@@ -1,5 +1,5 @@
 let { defineSupportCode } = require('cucumber');
-let UserAction = require('../uiAction/uiAction');
+let UserAction = require('../../uiAction/uiAction');
 let assert = require('assert');
 defineSupportCode(function ({ Given, When, Then }) {
 

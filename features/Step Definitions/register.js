@@ -1,7 +1,7 @@
 let { defineSupportCode } = require('cucumber');
 let assert = require('assert');
 
-let UserAction = require('../uiAction/uiAction');
+let UserAction = require('../../uiAction/uiAction');
 
 
 var MongoClient = require('mongodb').MongoClient;
