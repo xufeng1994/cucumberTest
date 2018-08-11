@@ -1,28 +1,31 @@
 [
   {
-    "description": "    主要操作为发帖、回帖、收藏、取消以及删帖\n    负责人： 徐枫\n    日期：2017-10-24",
+    "description": "    回帖功能测试\n    author:杜小磊\n    date:2017-11-05",
     "keyword": "Feature",
-    "name": "话题相关操作",
+    "name": "reply  function test",
     "line": 2,
-    "id": "话题相关操作",
+    "id": "reply--function-test",
     "tags": [
       {
-        "name": "@postTopic",
+        "name": "@reply",
         "line": 1
       }
     ],
-    "uri": "features\\postTopic.feature",
+    "uri": "features/reply.feature",
     "elements": [
       {
-        "description": "        用户登陆成功才能发帖",
-        "id": "话题相关操作;发帖",
+        "id": "reply--function-test;未输入信息，直接点击回复",
         "keyword": "Scenario",
-        "line": 10,
-        "name": "发帖",
+        "line": 11,
+        "name": "未输入信息，直接点击回复",
         "tags": [
           {
-            "name": "@postTopic",
+            "name": "@reply",
             "line": 1
+          },
+          {
+            "name": "@reply1",
+            "line": 10
           }
         ],
         "type": "scenario",
@@ -31,87 +34,74 @@
             "keyword": "Before",
             "hidden": true,
             "match": {
-              "location": "features\\supports\\hooks.js:3"
+              "location": "features/supports/hooks.js:3"
             },
             "result": {
               "status": "passed",
-              "duration": 4417
+              "duration": 1208
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "用户登录,用户名输入\"xufeng\",密码输入\"xf13451082032\",成功登录",
+            "name": "用户登录,用户名输入\"testuser1\",密码输入\"123456\",成功登录",
             "match": {
-              "location": "Definitions\\postTopic.js:6"
+              "location": "Definitions/postTopic.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 11898
+              "duration": 11521
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
+            "keyword": "When ",
             "line": 12,
-            "name": "导航到用户发帖界面",
+            "name": "导航到回帖页面",
             "match": {
-              "location": "Definitions\\postTopic.js:14"
+              "location": "Definitions/reply.js:4"
             },
             "result": {
               "status": "passed",
-              "duration": 3086
+              "duration": 3099
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 13,
-            "name": "发布帖子，板块：\"分享\"，标题：\"helloworld \",内容:\"23415twrdfh1qaz2wsx\"",
+            "name": "直接点击回帖按钮，得到提示信息'回复内容不能为空!'",
             "match": {
-              "location": "Definitions\\postTopic.js:18"
+              "location": "Definitions/reply.js:15"
             },
             "result": {
-              "status": "passed",
-              "duration": 550
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "点击发布话题",
-            "match": {
-              "location": "Definitions\\postTopic.js:44"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1599
+              "status": "failed",
+              "duration": 41,
+              "error_message": "ElementNotVisibleError: element not visible\n  (Session info: chrome=68.0.3440.106)\n  (Driver info: chromedriver=2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8),platform=Mac OS X 10.13.6 x86_64)\n    at Object.checkLegacyResponse (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/error.js:546:15)\n    at parseHttpResponse (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/http.js:509:13)\n    at doSend.then.response (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebElement.click()\n    at thenableWebDriverProxy.schedule (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/webdriver.js:807:17)\n    at WebElementPromise.schedule_ (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/webdriver.js:2010:25)\n    at WebElementPromise.click (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/webdriver.js:2092:17)\n    at CustomWorld.<anonymous> (/Users/xufeng/Desktop/cucumberTest/features/Step Definitions/reply.js:16:54)"
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "match": {
-              "location": "features\\supports\\hooks.js:6"
+              "location": "features/supports/hooks.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 46
+              "duration": 54
             }
           }
         ]
       },
       {
-        "description": "        用户登陆成功  才能回帖    ",
-        "id": "话题相关操作;回帖",
+        "id": "reply--function-test;添加照片和内容，回帖成功",
         "keyword": "Scenario",
-        "line": 16,
-        "name": "回帖",
+        "line": 15,
+        "name": "添加照片和内容，回帖成功",
         "tags": [
           {
-            "name": "@postTopic",
+            "name": "@reply",
             "line": 1
           }
         ],
@@ -121,74 +111,74 @@
             "keyword": "Before",
             "hidden": true,
             "match": {
-              "location": "features\\supports\\hooks.js:3"
+              "location": "features/supports/hooks.js:3"
             },
             "result": {
               "status": "passed",
-              "duration": 3135
+              "duration": 1243
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "用户登录,用户名输入\"xufeng\",密码输入\"xf13451082032\",成功登录",
+            "name": "用户登录,用户名输入\"testuser1\",密码输入\"123456\",成功登录",
             "match": {
-              "location": "Definitions\\postTopic.js:6"
+              "location": "Definitions/postTopic.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 11596
+              "duration": 8411
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "导航到回帖页面",
+            "match": {
+              "location": "Definitions/reply.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4865
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "点击照片输入路径'D://AutoTest/看枫傻不傻.png' ，输入内容'你是最棒的！'",
+            "match": {
+              "location": "Definitions/reply.js:7"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 39,
+              "error_message": "ElementNotVisibleError: element not visible\n  (Session info: chrome=68.0.3440.106)\n  (Driver info: chromedriver=2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8),platform=Mac OS X 10.13.6 x86_64)\n    at Object.checkLegacyResponse (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/error.js:546:15)\n    at parseHttpResponse (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/http.js:509:13)\n    at doSend.then.response (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebElement.click()\n    at thenableWebDriverProxy.schedule (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/webdriver.js:807:17)\n    at WebElementPromise.schedule_ (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/webdriver.js:2010:25)\n    at WebElementPromise.click (/Users/xufeng/Desktop/cucumberTest/node_modules/selenium-webdriver/lib/webdriver.js:2092:17)\n    at CustomWorld.<anonymous> (/Users/xufeng/Desktop/cucumberTest/features/Step Definitions/reply.js:8:55)"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 18,
-            "name": "导航到用户回复帖子界面",
+            "name": "回帖成功，跳转的页面含有'1 回复'",
             "match": {
-              "location": "Definitions\\postTopic.js:53"
+              "location": "Definitions/reply.js:20"
             },
             "result": {
-              "status": "passed",
-              "duration": 3430
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 19,
-            "name": "回复帖子内容:\"hkkjkmncvkh\"",
-            "match": {
-              "location": "Definitions\\postTopic.js:57"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 287
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 20,
-            "name": "点击回复 回复成功",
-            "match": {
-              "location": "Definitions\\postTopic.js:66"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 985
+              "status": "skipped"
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "match": {
-              "location": "features\\supports\\hooks.js:6"
+              "location": "features/supports/hooks.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 59
+              "duration": 56
             }
           }
         ]

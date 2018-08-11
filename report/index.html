@@ -144,7 +144,7 @@ table.tile_info td i {
 }
 
 table.tile_info td:first-child {
-    width: 83%;
+    width: 65%;
 }
 
 td span {
@@ -153,6 +153,7 @@ td span {
 
 table.tile_info td.percentage {
     text-align: right;
+
 }
 
 /* chart in table */
@@ -369,7 +370,8 @@ ul.quick-list {
     display: inline-block;
 }
 
-ul.quick-list li {
+ul.quick-list li,
+table.quick-list tr {
     padding-left: 10px;
     list-style: none;
     margin: 0;
@@ -380,28 +382,37 @@ ul.quick-list li {
     overflow: hidden;
 }
 
-ul.quick-list li .meta-data-title {
+ul.quick-list li .meta-data-title,
+table.quick-list td.meta-data-title {
     display: inline-block;
     min-width: 75px;
     font-weight: bold;
 }
 
-ul.quick-list li span {
+ul.quick-list li span,
+table.quick-list td {
     line-height: 28px;
 }
 
-ul.quick-list li {
+ul.quick-list li,
+table.quick-list tr {
     border-bottom: 1px solid #efefef;
     padding: 0.5em 0;
 }
 
-ul.quick-list li:last-child {
+ul.quick-list li:last-child,
+table.quick-list tr:last-child {
     border-bottom: none;
 }
 
 ul.quick-list li i {
     padding-right: 10px;
     color: #757679;
+}
+
+.screenshot{
+    height: 100%;
+    width: 100%;
 }
 
 /* Features / Scenarios */
@@ -429,6 +440,11 @@ ul.panel_toolbox li .step {
 
 .scenario-step-container .text {
     display: inline;
+}
+
+.scenario-step-container .duration {
+    position: relative;
+    float: right;
 }
 
 .scenario-step-container .text .keyword.highlight {
@@ -474,6 +490,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
     text-align: center;
 }
 
+            
         </style>
     </head>
     <body>
@@ -487,7 +504,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
         <div class="main_conainer">
 
             <div class="row">
-                <div class="col-md-6 col-xs-12">
+                <div class="col-md-6 col-lg-6 col-xs-12">
                     <div class="x_panel fixed_height_320">
                         <div class="x_title">
     <h2>Features</h2>
@@ -518,7 +535,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
         <tr>
             <td class="chart">
                 <canvas id="feature-chart"></canvas>
-                <div class="total">0</div>
+                <div class="total">1</div>
             </td>
             <td>
                 <table class="tile_info">
@@ -529,7 +546,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">NaN %</td>
+                        <td class="percentage">100.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -538,8 +555,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">NaN %</td>
+                        <td class="percentage">0.00 %</td>
                     </tr>
+                    
                     
                 </table>
             </td>
@@ -549,7 +567,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                     </div>
                 </div>
 
-                <div class="col-md-6 col-xs-12">
+                <div class="col-md-6 col-lg-6 col-xs-12">
                     <div class="x_panel fixed_height_320">
                         <div class="x_title">
     <h2>Scenarios</h2>
@@ -580,7 +598,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
         <tr>
             <td class="chart">
                 <canvas id="scenario-chart"></canvas>
-                <div class="total">0</div>
+                <div class="total">9</div>
             </td>
             <td>
                 <table class="tile_info">
@@ -591,7 +609,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage"> %</td>
+                        <td class="percentage">100.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -600,7 +618,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage"> %</td>
+                        <td class="percentage">0.00 %</td>
                     </tr>
                     
                     
@@ -609,11 +627,14 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                 </table>
             </td>
         </tr>
+        
     </table>
 </div>
 
                     </div>
                 </div>
+
+                
             </div>
 
             <div class="row">
@@ -637,7 +658,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                        width="100%">
                     <thead>
                     <tr>
-                        <th>Featurename</th>
+                        <th>Feature name</th>
                         <th><i class="fa fa-tags fa-lg" title="Tags"></i></th>
                         <th>Status</th>
                         <th class="text-center">
@@ -646,7 +667,11 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                         </th>
                         <th>Device</th>
                         <th>OS</th>
+                        
+                        
                         <th>Browser</th>
+                        
+                        
                         <th>Total</th>
                         <th>Passed</th>
                         <th>Failed</th>
@@ -659,6 +684,82 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 
                     <tbody>
                     
+                    <tr>
+                        <td>
+                            <a href="features/325a97e2-e3ce-4051-b861-2c593d585f64-login-function-test.html">login function test</a>
+                        </td>
+                        <td class="text-center">
+                            
+                            
+                            
+                            
+                            <i class="fa fa-tag fa-lg" data-toggle="tooltip" data-placement="top"
+                               title="@login">
+                                <span>@login</span>
+                            </i>
+                            
+                            
+                        </td>
+                        <td class="text-center">
+                            
+                            
+                            
+                            
+                            
+                            
+                            <i class="fa fa-check-circle passed-color fa-lg" data-toggle="tooltip" data-placement="top" title="Passed">
+                                <span>check-circle passed-color</span>
+                            </i>
+                        </td>
+                        <td class="text-center">
+                            
+                            
+                            
+                            
+                            
+                            
+                            <i class="fa fa-desktop fa-lg" data-toggle="tooltip" data-placement="top" title="Desktop">
+                                <span>desktop</span>
+                            </i>
+                        </td>
+                        <td>
+                            
+                            
+                            
+                            
+                            fengzi
+                        </td>
+                        <td>
+                            
+                            
+                            
+                            
+                            <i class="fa fa-windows fa-lg"><span>windows</span></i>
+                            10.12.6
+                        </td>
+                        
+                        
+                        <td>
+                            
+                            
+                            
+                            
+                            
+                            <i class="fa fa-chrome fa-lg"><span>chrome</span></i>
+                            62
+                            
+                        </td>
+                        
+                        
+                        <td>9</td>
+                        <td>9</td>
+                        <td>0</td>
+                        
+                        
+                        
+                        
+                    </tr>
+                    
                     </tbody>
 
                 </table>
@@ -666,6 +767,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
         </div>
     </div>
 </div>
+
             </div>
         </div>
 
@@ -702,16 +804,20 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                         labels: [
                             "Passed",
                             "Failed",
+                            "Skipped",
                             "Ambiguous"
                         ],
                         datasets: [{
                             data: [
-                                NaN,
-                                NaN,
-                                NaN],
+                                1,
+                                0,
+                                0,
+                                0
+                            ],
                             backgroundColor: [
                                 "#26B99A",
                                 "#E74C3C",
+                                "#3498DB",
                                 "#b73122"
                             ]
                         }]
@@ -738,12 +844,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
                         ],
                         datasets: [{
                             data: [
-                                ,
-                                ,
-                                ,
-                                ,
-                                ,
-                                ,
+                                9,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
                             ],
                             backgroundColor: [
                                 "#26B99A",

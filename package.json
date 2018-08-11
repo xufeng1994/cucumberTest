@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "collect": "./node_modules/.bin/cucumber.js.cmd -t @collect -f json:./report/report.json && node reporter.js",
-    "postTopic": "./node_modules/.bin/cucumber.js.cmd -t @postTopic -f json:./report/report.json  ",
-    "register": "./node_modules/.bin/cucumber.js.cmd -t @register -f json:./report/report.json && node reporter.js",
-    "login": "./node_modules/.bin/cucumber.js.cmd -t @login -f json:./report/report.json && node reporter.js",
-    "reply":"./node_modules/.bin/cucumber.js.cmd -t @reply -f json:./report/report.json && node reporter.js",
-    "setPass":"./node_modules/.bin/cucumber.js.cmd -t @setPass -f json:./report/report.json && node reporter.js",
-    "delete":"./node_modules/.bin/cucumber.js.cmd -t @delete -f json:./report/report.json && node reporter.js"
+    "collect": "./node_modules/.bin/cucumber.js -t @collect -f json:./report/report.json && node reporter.js",
+    "postTopic": "./node_modules/.bin/cucumber.js -t @postTopic -f json:./report/report.json  ",
+    "register": "./node_modules/.bin/cucumber.js -t @register -f json:./report/report.json && node reporter.js",
+    "login": "./node_modules/.bin/cucumber.js -t @login -f json:./report/report.json && node reporter.js",
+    "reply": "./node_modules/.bin/cucumber.js -t @reply -f json:./report/report.json && node reporter.js",
+    "setPass": "./node_modules/.bin/cucumber.js -t @setPass -f json:./report/report.json && node reporter.js",
+    "delete": "./node_modules/.bin/cucumber.js -t @delete -f json:./report/report.json && node reporter.js"
   },
   "repository": {
     "type": "git",
@@ -24,11 +24,11 @@
   },
   "homepage": "https://github.com/xufeng1994/cucumberTest#readme",
   "dependencies": {
-    "chromedriver": "^2.33.2",
     "cucumber": "^3.0.6",
     "fs-extra": "^4.0.2",
     "mongodb": "^2.2.33",
     "multiple-cucumber-html-reporter": "^1.1.0",
+    "npm": "^6.3.0",
     "selenium-webdriver": "^3.6.0"
   }
 }

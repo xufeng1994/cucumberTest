@@ -67,4 +67,9 @@ defineSupportCode(function ({ Given, Then, When }) {
         return this.web.findElement({ css: "#reply_form .submit_btn" }).click();
     });
 
+    Then(/^发布成功，返回标题内容"([^"]*)"$/, async function (arg1) {
+    
+        return 'pending';
+    });
+
 })
